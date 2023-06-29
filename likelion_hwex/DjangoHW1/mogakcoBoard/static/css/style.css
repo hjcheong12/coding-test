@@ -1,0 +1,73 @@
+body    {padding: 0px;
+        margin: 0px;
+        }
+
+.container     {display: flex; 
+                justify-content: center; 
+                flex-direction: column; 
+                align-items: center;}
+
+.header {background-color: #3819A0;
+        color: #FFABE4;
+        font-size: 20px;
+        padding: 20px;
+        margin-top: 0px;
+        font-weight: bold;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        }
+
+
+.homeimg    {width: 80%;
+            margin-right: auto; margin-left: auto;
+            margin-top: -10px;
+            }
+
+/* 게시판 글 목록 */
+table   {margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        width: 80%;
+        }
+
+th, td {
+        border-bottom: 1px solid lightgray;
+        text-align: center;
+        height: 35px;
+        font-size: 15px;
+        } 
+
+thead th        {text-align: center;}
+
+thead   {background-color: rgb(245,222,241);}
+
+/* 버튼 */
+.btn    {background-color: rgb(245,222,241);
+        color: navy;
+        font-size: 30px; /*글자 크기*/
+        }       
+
+.button {margin-bottom: 50px;}
+
+
+/* 상세페이지 */
+.page-title     {color: royalblue;}
+.post-detail    {margin-bottom: 50px;
+                margin-top: 30px;
+                }       
+.comment-header {overflow: hidden;}
+.comment-id     {float:left;
+                margin-right: 700px;}
+.comment-date   {float:right;}
+.comment-list   {text-align: left;}
+
+
+.post-header    {display:flex; 
+                justify-items: space-around;
+                align-items: baseline;
+                margin-bottom:30px;
+                }
+
+.post-title     {padding: 0px;
+                margin-right: 0px;}

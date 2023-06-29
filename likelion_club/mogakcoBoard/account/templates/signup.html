@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+<p>회원가입</p>
+<form action="{% url 'signup' %}" method = 'POST'>
+    {% csrf_token %}
+    아이디: <input type="text" name="username"><br>
+    비밀번호: <input type="password" name="password"><br>
+    비밀번호 재입력: <input type="password" name="repeat"><br>
+    <input type="submit" value="회원가입">
+</form>
+</section>
+{% endblock %}

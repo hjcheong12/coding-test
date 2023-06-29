@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <title>모각코 게시판</title>
+</head>
+<body>
+    <section class="container">
+        <div class = "header">
+            <p id = "board-title">모각코 모집 게시판</p>
+            <div id = "login">
+                
+                {% if user.is_authenticated %}
+                 안녕하세요, {{ user.username }}님
+                <a href = "{% url 'logout' %}"> 로그아웃 </a>
+                {% else %}
+                <a href = "{% url 'login' %}"> 로그인 </a>
+                <a href = "{% url 'signup' %}"> 회원가입 </a>
+                {% endif %}
+            </div>
+
+        </div>
+
+        {% block content %}
+        {% endblock %}
+    </section>
+</body>
+</html>

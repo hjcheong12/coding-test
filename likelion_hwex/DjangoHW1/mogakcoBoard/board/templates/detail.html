@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+
+{% block content %}  
+<section class = "post-detail">
+    <div class = "post-header">
+        <h2 class="page-title post-title"> {{post_detail.title}}</h2>
+        <h5 class="post-date">
+            작성일: {{post_detail.date}}
+            작성자: {{post_detail.author.username}}
+        </h5>
+    </div>
+    <p> {{post_detail.body}}</p>
+    <br>
+    {% if post_detail.picture %} 
+        <img src = "{{ post_detail.picture.url }}" class="post-image"> 
+    {% endif %}
+
+    {% if request.user == post_detail.author %}
+    
+    <div>
+        <br>
+        <a class="btn" role="button" href="{% url 'post_update' post_detail.id %}">수정</a>
+        <a class="btn" role="button" href="{% url 'post_delete' post_detail.id %}">삭제</a>
+    </div>
+    {% endif %}
+</section>
+
+<br>
+<!--댓글 목록-->
+<section class="comment-list">
+    <h4 class="page-title"> 댓글💬</h4>
+    <hr>
+    <br>
+    {% for comment in post_detail.comment_set.all %}
+        <div class="comment-header">
+            <p class = "comment-id">{{ comment.author.username }}</p>
+            <p class = "comment-date">{{ comment.date }}</p>
+            
+        </div>
+        <p>{{ comment }}</p>
+        {% if request.user == comment.author %}
+            <a class="btn" role="button" href="{% url 'comment_delete' comment.id %}">삭제</a>
+        {% endif %}
+        <hr>
+    {% endfor %}
+</section>
+
+<!--댓글 입력-->
+<form method="POST" action="{%url 'new_comment' post_detail.id %}">
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type ="submit" value="댓글 입력" class="btn">
+</form>
+
+<a class="btn" href="{% url 'home' %}" role="button">홈</a>
+<hr>
+{% endblock %}
